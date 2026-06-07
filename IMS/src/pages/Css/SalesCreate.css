@@ -1,0 +1,145 @@
+/* ===============================
+   PAGE LAYOUT
+=============================== */
+.sales-page {
+  padding: 20px 30px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.sales-page h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ===============================
+   FORM ELEMENTS
+=============================== */
+.sales-page select,
+.sales-page input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.sales-page select:focus,
+.sales-page input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ===============================
+   ADD BUTTON
+=============================== */
+.sales-page button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.sales-page button:first-of-type {
+  background: #10b981;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.sales-page button:first-of-type:hover {
+  background: #059669;
+}
+
+/* ===============================
+   ITEM BOX (PRODUCT CARD)
+=============================== */
+.item-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ===============================
+   GRID (PRODUCT + QTY + PRICE)
+=============================== */
+.item-box select,
+.item-box input {
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   LOT SECTION
+=============================== */
+.lot-box {
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.lot-box div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.lot-box label {
+  font-size: 13px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===============================
+   LOT INPUTS
+=============================== */
+.item-box input[type="number"] {
+  font-size: 14px;
+}
+
+/* ===============================
+   WARNING TEXT
+=============================== */
+.lot-warning {
+  color: #d97706;
+  font-size: 13px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* ===============================
+   TOTAL SECTION
+=============================== */
+.sales-page h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===============================
+   PAYMENT SECTION
+=============================== */
+.sales-page input[placeholder="Paid Amount"] {
+  margin-top: 10px;
+}
+
+/* ===============================
+   SUBMIT BUTTON
+=============================== */
+.sales-page button:last-of-type {
+  background: #2563eb;
+  color: white;
+  margin-top: 15px;
+  padding: 10px 16px;
+}
+
+.sales-page button:last-of-type:hover {
+  background: #1d4ed8;
+}

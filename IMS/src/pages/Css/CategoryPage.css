@@ -1,0 +1,221 @@
+/* =============================================
+   PAGE
+============================================= */
+
+.category-page {
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.category-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+
+/* =============================================
+   TOP BAR
+============================================= */
+
+.category-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Add Form */
+.category-add-form {
+  display: flex;
+  gap: 8px;
+}
+
+.category-add-form input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  min-width: 200px;
+}
+
+.category-add-form input:focus {
+  border-color: #2563eb;
+}
+
+.category-add-form button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.category-add-form button:hover {
+  background: #1d4ed8;
+}
+
+.category-add-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* Search */
+.category-search {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  min-width: 220px;
+}
+
+.category-search:focus {
+  border-color: #2563eb;
+}
+
+
+/* =============================================
+   TABLE LAYOUT (2 COLUMN)
+============================================= */
+
+.category-columns {
+  display: flex;
+  gap: 12px;
+}
+
+/* Table */
+.category-table {
+  width: 50%;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.category-table tbody tr {
+  height: 36px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.category-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+
+/* =============================================
+   CELLS
+============================================= */
+
+.category-name {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #111827;
+}
+
+.category-empty-row {
+  height: 36px;
+}
+
+
+/* =============================================
+   DELETE BUTTON
+============================================= */
+
+.category-delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.category-delete-btn:hover {
+  background: #dc2626;
+}
+
+.category-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =============================================
+   LOADING / EMPTY
+============================================= */
+
+.category-loading {
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+
+/* =============================================
+   PAGINATION
+============================================= */
+
+.category-pagination {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-pagination button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.category-pagination button:hover {
+  background: #1d4ed8;
+}
+
+.category-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.category-pagination span {
+  font-size: 14px;
+  color: #374151;
+}
+
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+
+@media (max-width: 768px) {
+  .category-columns {
+    flex-direction: column;
+  }
+
+  .category-table {
+    width: 100%;
+  }
+
+  .category-topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-add-form {
+    width: 100%;
+  }
+
+  .category-search {
+    width: 100%;
+  }
+}

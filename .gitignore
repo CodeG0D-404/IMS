@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# env
+.env
+.env.*
+**/.env
+**/.env.*
+
+# build
+dist/
+build/
+
+# logs
+*.log
+
+# backups
+MongoBackup/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+delete.txt

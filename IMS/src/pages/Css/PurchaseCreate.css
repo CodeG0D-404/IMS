@@ -1,0 +1,311 @@
+/* =============================================
+   PAGE
+============================================= */
+
+.purchase-page {
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.purchase-page h2 {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   HEADER (SUPPLIER)
+============================================= */
+
+.purchase-page select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  margin-bottom: 10px;
+  min-width: 250px;
+}
+
+.purchase-page select:focus {
+  border-color: #2563eb;
+}
+
+
+/* =============================================
+   BALANCE INFO
+============================================= */
+
+.purchase-page p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+
+/* =============================================
+   TABLE
+============================================= */
+
+.purchase-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.purchase-page thead {
+  background: #f1f5f9;
+}
+
+.purchase-page th {
+  text-align: left;
+  padding: 10px;
+  font-size: 13px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.purchase-page td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.purchase-page tr:hover {
+  background: #f9fafb;
+}
+
+
+/* =============================================
+   INPUTS IN TABLE
+============================================= */
+
+.purchase-page input {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.purchase-page input:focus {
+  border-color: #2563eb;
+  background: #f9fbff;
+}
+
+
+/* =============================================
+   ADD ROW BUTTON
+============================================= */
+
+.purchase-page > button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #10b981;
+  color: white;
+  cursor: pointer;
+}
+
+.purchase-page > button:hover {
+  background: #059669;
+}
+
+
+/* =============================================
+   DELETE BUTTON
+============================================= */
+
+.purchase-page td button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.purchase-page td button:hover {
+  background: #dc2626;
+}
+
+
+/* =============================================
+   PAYMENT SECTION
+============================================= */
+
+.purchase-page > div {
+  margin-top: 16px;
+}
+
+.purchase-page > div select {
+  margin-right: 10px;
+}
+
+.purchase-page > div input {
+  max-width: 150px;
+}
+
+
+/* =============================================
+   SUMMARY
+============================================= */
+
+.purchase-page > div p {
+  font-weight: 500;
+}
+
+.purchase-page > div p:nth-child(1) {
+  font-size: 16px;
+}
+
+.purchase-page > div p:nth-child(2) {
+  color: #ef4444;
+}
+
+.purchase-page > div p:nth-child(3) {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   ACTION BUTTON
+============================================= */
+
+.purchase-page > button:last-of-type {
+  margin-top: 16px;
+  padding: 12px;
+  width: 100%;
+  background: #2563eb;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.purchase-page > button:last-of-type:hover {
+  background: #1d4ed8;
+}
+
+.purchase-page > button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =============================================
+   MODAL
+============================================= */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal > div {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 320px;
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+}
+
+.modal input {
+  margin-bottom: 8px;
+}
+
+.modal button {
+  margin-right: 8px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:first-child {
+  background: #9ca3af;
+  color: white;
+}
+
+.modal button:last-child {
+  background: #2563eb;
+  color: white;
+}
+
+.modal button:last-child:hover {
+  background: #1d4ed8;
+}
+
+/* Ledger Box */
+.ledger-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.ledger-box h3 {
+  margin-bottom: 10px;
+}
+
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.ledger-row.plus {
+  color: green;
+}
+
+.ledger-row.minus {
+  color: red;
+}
+
+.ledger-divider {
+  border-top: 1px dashed #ccc;
+  margin: 10px 0;
+}
+
+.ledger-row.final {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+
+@media (max-width: 768px) {
+  .purchase-page table {
+    font-size: 12px;
+  }
+
+  .purchase-page th,
+  .purchase-page td {
+    padding: 6px;
+  }
+
+  .purchase-page select {
+    width: 100%;
+  }
+}

@@ -1,0 +1,166 @@
+/* =========================================
+   IMS Sidebar — Static Admin Layout
+========================================= */
+
+.ims-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: #111827;
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.ims-sidebar-header {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.ims-sidebar-nav {
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+  flex: 1;
+}
+
+/* ==============================
+   MAIN ITEMS
+============================== */
+
+.ims-nav-item {
+  width: 100%;
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ims-nav-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.ims-nav-item.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* ==============================
+   DROPDOWN
+============================== */
+
+.ims-dropdown {
+  justify-content: space-between;
+}
+
+.ims-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ims-arrow {
+  font-size: 12px;
+}
+
+/* ==============================
+   SUBMENU
+============================== */
+
+.ims-submenu {
+  list-style: none;
+  padding-left: 42px;
+  margin: 6px 0;
+}
+
+.ims-submenu li a {
+  display: block;
+  padding: 6px 0;
+  font-size: 13px;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ims-submenu li a:hover {
+  color: #ffffff;
+}
+
+.ims-submenu li a.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+.ims-sidebar-footer {
+  padding: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.ims-nav-item.logout {
+  color: #f87171;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.current-store {
+  font-size: 13px;
+  cursor: pointer;
+  color: #cbd5f5;
+}
+
+.store-dropdown {
+  background: #1f2937;
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.store-dropdown-item {
+  display: block;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.store-dropdown-item:hover {
+  background: #374151;
+}
+
+.store-divider {
+  height: 1px;
+  background: #374151;
+}

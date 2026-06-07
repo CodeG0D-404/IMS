@@ -1,0 +1,115 @@
+/* ===============================
+   PAGE LAYOUT
+=============================== */
+.return-list-page {
+  padding: 20px 30px;
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.return-list-page h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ===============================
+   TABLE
+=============================== */
+.return-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.return-table thead {
+  background: #f3f4f6;
+}
+
+.return-table th {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.return-table td {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #4b5563;
+  border-top: 1px solid #f1f1f1;
+}
+
+.return-table tr:hover {
+  background: #f9fafb;
+}
+
+/* ===============================
+   EMPTY STATE
+=============================== */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* ===============================
+   TAGS (RETURN TYPE)
+=============================== */
+.tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* ADJUST */
+.tag.adjust {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* REFUND */
+.tag.refund {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+/* REPLACE */
+.tag.replace {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* ===============================
+   BUTTON
+=============================== */
+.details-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.details-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ===============================
+   LOADING
+=============================== */
+.loading {
+  padding: 20px;
+  font-size: 14px;
+  color: #6b7280;
+}

@@ -1,0 +1,58 @@
+.employee-container {
+  padding: 20px;
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.employee-table th,
+.employee-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.password-cell {
+  display: flex;
+  gap: 6px;
+}
+
+.change-btn {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 320px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.modal-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}

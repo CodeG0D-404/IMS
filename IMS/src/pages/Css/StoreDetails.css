@@ -1,0 +1,117 @@
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.store-details-container {
+  padding: 32px 40px;
+  background: #f6f7f8;
+  min-height: 100vh;
+}
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.store-details-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.store-card {
+
+  background: #ffffff;
+
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+
+  padding: 28px;
+
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.05);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  max-width: 1000px;
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.store-section {
+  background: #fafafa;
+  padding: 18px;
+
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+}
+
+/* Section titles */
+
+.store-section h3 {
+
+  font-size: 16px;
+  font-weight: 600;
+
+  margin-bottom: 12px;
+
+  color: #374151;
+
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 6px;
+}
+
+/* =========================================
+   TEXT STYLING
+========================================= */
+
+.store-section p {
+
+  font-size: 14px;
+  color: #4b5563;
+
+  margin: 6px 0;
+}
+
+.store-section strong {
+  color: #111827;
+}
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.error {
+  padding: 14px 18px;
+
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+
+  border-radius: 8px;
+
+  color: #991b1b;
+  font-size: 14px;
+
+  max-width: 600px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .store-card {
+    grid-template-columns: 1fr;
+  }
+
+}

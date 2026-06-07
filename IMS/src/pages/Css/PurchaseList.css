@@ -1,0 +1,93 @@
+.purchase-page {
+  padding: 20px;
+}
+
+.purchase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.create-btn {
+  background: #0a7cff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.purchase-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.purchase-filters input,
+.purchase-filters select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.purchase-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.purchase-table th,
+.purchase-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.purchase-table tr:hover {
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+}
+
+/* STATUS */
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status.paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.partial {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.unpaid {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.view-btn {
+  padding: 5px 10px;
+  border: none;
+  background: #0a7cff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.view-btn:hover {
+  background: #065ec9;
+}

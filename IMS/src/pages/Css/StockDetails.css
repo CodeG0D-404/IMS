@@ -1,0 +1,88 @@
+.stock-details-page {
+  padding: 20px;
+}
+
+.details-header {
+  margin-bottom: 24px;
+}
+
+.details-header h2 {
+  margin-bottom: 6px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.08);
+}
+
+.summary-card h4 {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.summary-card p {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.lots-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.lots-table th,
+.lots-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.lots-table th {
+  background: #f5f5f5;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+}
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.low-stock {
+  color: orange;
+  font-weight: bold;
+}
+
+.sold-out {
+  color: red;
+  font-weight: bold;
+}
+
+.loading,
+.error {
+  padding: 20px;
+}

@@ -1,0 +1,32 @@
+/* =========================================
+   IMS Layout — Fixed Sidebar Stable Version
+========================================= */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.admin-layout {
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+/* Sidebar */
+.ims-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+}
+
+/* Content */
+.admin-content {
+  margin-left: 250px;
+  min-height: 100vh;
+  padding: 30px;
+  background: #ffffff;
+  box-sizing: border-box;
+}

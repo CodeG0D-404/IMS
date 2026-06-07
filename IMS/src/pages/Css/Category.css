@@ -1,0 +1,162 @@
+/* =========================================
+   CATEGORY PAGE
+========================================= */
+
+.category-page {
+  padding: 20px;
+}
+
+/* Title */
+
+.category-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+/* =========================================
+   TOP BAR (ADD + SEARCH)
+========================================= */
+
+.category-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+
+/* Add Form */
+
+.category-add-form {
+  display: flex;
+  gap: 10px;
+}
+
+.category-add-form input {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.category-add-form button {
+  padding: 8px 14px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.category-add-form button:hover {
+  background: #1e4ed8;
+}
+
+
+/* Search */
+
+.category-search {
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 250px;
+}
+
+
+/* =========================================
+   CATEGORY GRID
+========================================= */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 40px;
+  margin-top: 10px;
+}
+
+
+/* Category Row */
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px 10px;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+/* Category Name */
+
+.category-name {
+  font-size: 14px;
+  color: #333;
+}
+
+
+/* Delete Button */
+
+.category-delete-btn {
+  background: #ef4444;
+  border: none;
+  color: white;
+
+  padding: 4px 10px;
+  font-size: 12px;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.category-delete-btn:hover {
+  background: #dc2626;
+}
+
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.category-pagination {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.category-pagination button {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.category-pagination button:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.category-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.category-loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}

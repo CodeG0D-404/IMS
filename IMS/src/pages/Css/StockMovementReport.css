@@ -1,0 +1,398 @@
+/* =========================================
+   STOCK MOVEMENT REPORT
+========================================= */
+
+.stock-movement-page {
+  padding: 24px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.report-header {
+  margin-bottom: 24px;
+}
+
+.report-header h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* =========================================
+   FILTERS
+========================================= */
+
+.filters {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.filter-group input,
+.filter-group select {
+  min-width: 220px;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+
+  background: white;
+
+  font-size: 14px;
+
+  transition: all 0.2s ease;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+  outline: none;
+
+  border-color: #0891b2;
+
+  box-shadow:
+    0 0 0 4px rgba(8, 145, 178, 0.08);
+}
+
+/* =========================================
+   KPI GRID
+========================================= */
+
+.summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 24px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.05);
+
+  transition: all 0.25s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+}
+
+.summary-card h4 {
+  margin: 0 0 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #64748b;
+}
+
+.summary-card p {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 800;
+}
+
+/* =========================================
+   KPI COLORS
+========================================= */
+
+.in-card p {
+  color: #16a34a;
+}
+
+.out-card p {
+  color: #dc2626;
+}
+
+.summary-card:last-child p {
+  color: #0891b2;
+}
+
+/* =========================================
+   HERO CARD
+========================================= */
+
+.hero-card {
+  background:
+    linear-gradient(
+      135deg,
+      #0891b2,
+      #06b6d4
+    );
+
+  color: white;
+
+  text-align: center;
+
+  border-radius: 24px;
+
+  padding: 36px;
+
+  margin-bottom: 24px;
+
+  box-shadow:
+    0 16px 40px rgba(8, 145, 178, 0.18);
+}
+
+.hero-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hero-value {
+  margin-top: 10px;
+
+  font-size: 54px;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+
+  opacity: 0.9;
+
+  font-size: 14px;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-wrapper {
+  background: white;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.report-table thead {
+  background: #f8fafc;
+}
+
+.report-table th {
+  padding: 16px;
+
+  text-align: left;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #334155;
+
+  white-space: nowrap;
+}
+
+.report-table td {
+  padding: 16px;
+
+  border-top: 1px solid #f1f5f9;
+
+  vertical-align: middle;
+}
+
+.report-table tbody tr {
+  transition: 0.2s ease;
+}
+
+.report-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* =========================================
+   MOVEMENT TAGS
+========================================= */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* PURCHASE */
+
+.purchase {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* SALE */
+
+.sale {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* SALES RETURN */
+
+.sales-return {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* PURCHASE RETURN */
+
+.purchase-return {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ADJUSTMENT */
+
+.adjustment {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.default {
+  background: #e5e7eb;
+  color: #475569;
+}
+
+/* =========================================
+   QTY COLORS
+========================================= */
+
+.in-text {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.out-text {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
+
+.report-table td:nth-child(2) {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* =========================================
+   NO DATA
+========================================= */
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+
+  color: #64748b;
+
+  font-weight: 500;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading {
+  text-align: center;
+  padding: 40px;
+
+  color: #64748b;
+
+  font-size: 18px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .report-table {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .stock-movement-page {
+    padding: 16px;
+  }
+
+  .report-header h2 {
+    font-size: 26px;
+  }
+
+  .summary-card p {
+    font-size: 24px;
+  }
+
+  .hero-value {
+    font-size: 40px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filter-group input,
+  .filter-group select {
+    min-width: 100%;
+  }
+}

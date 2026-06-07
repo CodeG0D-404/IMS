@@ -1,0 +1,208 @@
+/* =============================================
+   PAGE
+============================================= */
+
+.product-page {
+  padding: 20px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.product-page h2 {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   TOP BAR
+============================================= */
+
+.product-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.product-topbar button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.product-topbar button:hover {
+  background: #1d4ed8;
+}
+
+.product-topbar input {
+  flex: 1;
+  max-width: 280px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.product-topbar input:focus {
+  border-color: #2563eb;
+}
+
+
+/* =============================================
+   TABLE
+============================================= */
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-table th {
+  text-align: left;
+  padding: 12px;
+  background: #f1f5f9;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.product-table td {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.product-table tr:hover {
+  background: #f9fafb;
+}
+
+
+/* =============================================
+   ACTION BUTTONS
+============================================= */
+
+.product-table button {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.product-table button:hover {
+  background: #dc2626;
+}
+
+.product-table button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =============================================
+   EMPTY / LOADING
+============================================= */
+
+.product-page p {
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+
+/* =============================================
+   MODAL
+============================================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal h3 {
+  margin-bottom: 12px;
+}
+
+
+/* =============================================
+   FORM
+============================================= */
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal input,
+.modal select,
+.modal textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+}
+
+.modal input:focus,
+.modal select:focus,
+.modal textarea:focus {
+  border-color: #2563eb;
+}
+
+
+/* =============================================
+   MODAL ACTIONS
+============================================= */
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.modal-actions button:first-child {
+  background: #2563eb;
+  color: white;
+}
+
+.modal-actions button:first-child:hover {
+  background: #1d4ed8;
+}
+
+.modal-actions button:last-child {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.modal-actions button:last-child:hover {
+  background: #d1d5db;
+}
