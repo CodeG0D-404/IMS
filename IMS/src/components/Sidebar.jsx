@@ -41,7 +41,7 @@ const Sidebar = () => {
     localStorage.removeItem("storeName");
     localStorage.removeItem("user");
 
-    navigate("/login");
+    window.location.href = "/";
   };
 
   /* =========================================

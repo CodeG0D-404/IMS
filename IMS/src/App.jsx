@@ -71,6 +71,7 @@ function App() {
         ========================== */}
 
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
 
         {/* Store Selection After Login */}
         <Route
