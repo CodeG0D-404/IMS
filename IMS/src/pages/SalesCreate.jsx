@@ -242,7 +242,7 @@ export default function SalesCreate() {
       });
 
       alert("Sale created");
-      window.location.reload();
+      navigate("/dashboard/sales");
 
     } catch (err) {
       console.error(err);

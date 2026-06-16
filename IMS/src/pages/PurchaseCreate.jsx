@@ -138,7 +138,7 @@ export default function PurchaseCreate() {
       });
 
       alert("Purchase Created");
-      window.location.reload();
+      navigate("/dashboard/purchase");
 
     } catch (err) {
       alert(err.response?.data?.message || "Error");
