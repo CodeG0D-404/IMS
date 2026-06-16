@@ -60,7 +60,12 @@ export const createSalesReturn = async (req, res) => {
        PROCESS ITEMS
     ========================= */
     for (const item of items) {
-      const { saleItemId, quantity, condition = "good" } = item;
+      const {
+        saleItemId,
+        quantity,
+        condition = "good",
+        lots = [],
+      } = item;
 
       if (!saleItemId || !quantity || quantity <= 0) {
         throw new Error("Invalid item data");
@@ -98,87 +103,156 @@ export const createSalesReturn = async (req, res) => {
       if (alreadyReturned + quantity > saleItem.quantity) {
         throw new Error("Return exceeds sold quantity");
       }
-
       /* =========================
-         CALCULATIONS
-      ========================= */
-      const unitPrice = saleItem.price;
-      const unitCost = saleItem.totalCost / saleItem.quantity;
+        CALCULATIONS
+        ========================= */
 
-      const returnAmount = Number(
-          (unitPrice * quantity).toFixed(2)
+
+        const unitPrice = Number(
+          saleItem.price
         );
 
-        const costToReverse = Number(
-          (unitCost * quantity).toFixed(2)
+        const returnAmount = Number(
+          (
+            unitPrice * quantity
+          ).toFixed(2)
         );
-
-      // 🔥 CORRECT PROFIT REVERSAL
-      const profitReversal = Number(
-  (
-    costToReverse - returnAmount
-  ).toFixed(2)
-);
-
-      totalReturnAmount += returnAmount;
-      totalProfitReversal += profitReversal;
 
       /* =========================
          LOT REVERSAL (FIFO)
       ========================= */
-      let remainingQty = quantity;
-      const lotReturns = [];
-
-      for (const lot of saleItem.lots) {
-        if (remainingQty <= 0) break;
-
-        const usedQty = Math.min(lot.quantity, remainingQty);
-
-        if (
-          condition === "good" &&
-          adjustmentType !== "REPLACE"
-        ) {
-          const stockLot = await StockLot.findById(lot.stockLot).session(session);
-
-          if (!stockLot) throw new Error("Stock lot not found");
-
-          stockLot.remainingQty += usedQty;
-          await stockLot.save({ session });
-
-          // ONLY CHANGE IS INSIDE logStockTransaction
-
-        await logStockTransaction({
-          product: saleItem.product,
-          store: storeId,
-          stockLot: stockLot._id,
-
-          type: "SALES_RETURN",
-
-          quantity: usedQty,
-          costPrice: lot.costPrice,
-          sellingPrice: saleItem.price,
-
-          performedBy: userId,
-          notes: "Sales Return",
-          session,
-        });
+      /* =========================
+   LOT REVERSAL
+        ========================= */
+        if (!lots.length) {
+          throw new Error(
+            "Please select return lots"
+          );
         }
 
-        lotReturns.push({
-          stockLot: lot.stockLot,
-          quantity: usedQty,
-          costPrice: lot.costPrice,
-        });
+        const lotReturns = [];
 
-        remainingQty -= usedQty;
-      }
+        const totalLotQty = lots.reduce(
+          (sum, l) => sum + Number(l.quantity || 0),
+          0
+        );
 
-      /* =========================
-         SAFETY CHECK
-      ========================= */
-      if (remainingQty > 0) {
-        throw new Error("Not enough lot quantity to return");
-      }
+        if (totalLotQty !== quantity) {
+          throw new Error(
+            "Lot return quantity must match return quantity"
+          );
+        }
+
+        let costToReverse = 0;
+
+        for (const selectedLot of lots) {
+
+          const originalLot = saleItem.lots.find(
+            (l) =>
+              l.stockLot.toString() ===
+              selectedLot.stockLot.toString()
+          );
+
+          if (!originalLot) {
+            throw new Error(
+              "Lot not found in original sale"
+            );
+          }
+
+          const returnQty = Number(
+            selectedLot.quantity
+          );
+
+          if (returnQty <= 0) {
+            continue;
+          }
+
+          if (returnQty > originalLot.quantity) {
+            throw new Error(
+              `Return exceeds sold quantity for lot ${selectedLot.stockLot}`
+            );
+          }
+
+          /* =========================
+            COST REVERSAL
+          ========================= */
+          costToReverse +=
+            returnQty *
+            Number(originalLot.costPrice);
+
+          /* =========================
+            RESTORE STOCK
+          ========================= */
+          if (
+            condition === "good" &&
+            adjustmentType !== "REPLACE"
+          ) {
+            const stockLot =
+              await StockLot.findById(
+                selectedLot.stockLot
+              ).session(session);
+
+            if (!stockLot) {
+              throw new Error(
+                "Stock lot not found"
+              );
+            }
+
+            stockLot.remainingQty += returnQty;
+
+            await stockLot.save({
+              session,
+            });
+
+            await logStockTransaction({
+              product: saleItem.product,
+              store: storeId,
+              stockLot: stockLot._id,
+
+              type: "SALES_RETURN",
+
+              quantity: returnQty,
+
+              costPrice:
+                originalLot.costPrice,
+
+              sellingPrice:
+                saleItem.price,
+
+              performedBy: userId,
+
+              notes: "Sales Return",
+
+              session,
+            });
+          }
+
+          lotReturns.push({
+            stockLot: selectedLot.stockLot,
+            quantity: returnQty,
+            costPrice:
+              originalLot.costPrice,
+          });
+        }
+
+        costToReverse = Number(
+          costToReverse.toFixed(2)
+        );
+
+        /* =========================
+          PROFIT REVERSAL
+        ========================= */
+
+        const profitReversal = Number(
+          (
+            costToReverse - returnAmount
+          ).toFixed(2)
+        );
+
+        totalReturnAmount += returnAmount;
+
+        totalProfitReversal +=
+          profitReversal;
 
       /* =========================
          CREATE RETURN ITEM

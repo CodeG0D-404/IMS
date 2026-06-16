@@ -100,62 +100,74 @@ if (totalAmount <= 0) {
     for (const item of items) {
       const { product, quantity, sellingPrice } = item;
 
-      let remainingQty = quantity;
+      const selectedLots = item.lots || [];
 
-      const lots = await StockLot.find({
-        product,
-        store: storeId,
-        remainingQty: { $gt: 0 },
-      })
-        .sort({ purchaseDate: 1 })
-        .session(session);
+if (!selectedLots.length) {
+  throw new Error(
+    "Please select at least one lot"
+  );
+}
 
-      if (!lots.length) {
-        throw new Error("Insufficient stock");
-      }
+const totalSelected = selectedLots.reduce(
+  (sum, lot) => sum + Number(lot.quantity || 0),
+  0
+);
 
-      let lotBreakdown = [];
-      let totalCost = 0;
+if (totalSelected !== quantity) {
+  throw new Error(
+    "Selected lot quantity must match item quantity"
+  );
+}
 
-      for (const lot of lots) {
-        if (remainingQty <= 0) break;
+let lotBreakdown = [];
+let totalCost = 0;
 
-        const usedQty = Math.min(lot.remainingQty, remainingQty);
+for (const selected of selectedLots) {
 
-        lot.remainingQty -= usedQty;
-        await lot.save({ session });
+  const lot = await StockLot.findOne({
+    _id: selected.stockLot,
+    store: storeId,
+    product,
+  }).session(session);
 
-        const cost = Number(
-            (
-              usedQty * lot.purchasePrice
-            ).toFixed(2)
-          );
-        totalCost += cost;
+  if (!lot) {
+    throw new Error("Lot not found");
+  }
 
-        lotBreakdown.push({
-          stockLot: lot._id,
-          quantity: usedQty,
-          costPrice: lot.purchasePrice,
-        });
+  if (lot.remainingQty < selected.quantity) {
+    throw new Error(
+      `Lot ${lot._id} has only ${lot.remainingQty} available`
+    );
+  }
 
-        await logStockTransaction({
-          store: storeId,
-          product,
-          type: "SALE",
-          quantity: -usedQty,
-          stockLot: lot._id,
-          referenceId: sale._id,
-          referenceModel: "Sale",
-          performedBy: userId, // ✅ FIX (same as purchase)
-          session,
-        });
+  lot.remainingQty -= Number(selected.quantity);
 
-        remainingQty -= usedQty;
-      }
+  await lot.save({ session });
 
-      if (remainingQty > 0) {
-        throw new Error("Insufficient stock for product");
-      }
+  const cost =
+    Number(selected.quantity) *
+    Number(lot.purchasePrice);
+
+  totalCost += cost;
+
+  lotBreakdown.push({
+    stockLot: lot._id,
+    quantity: Number(selected.quantity),
+    costPrice: lot.purchasePrice,
+  });
+
+  await logStockTransaction({
+    store: storeId,
+    product,
+    type: "SALE",
+    quantity: -Number(selected.quantity),
+    stockLot: lot._id,
+    referenceId: sale._id,
+    referenceModel: "Sale",
+    performedBy: userId,
+    session,
+  });
+}
 
         const totalRevenue = Number(
           (
