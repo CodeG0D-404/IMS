@@ -123,26 +123,35 @@ export default function PurchaseCreate() {
     }
 
     try {
-      setLoading(true);
+  setLoading(true);
 
-      await api.post("/purchases", {
-        supplier,
-        items: items.map((i) => ({
-          product: i.product,
-          quantity: Number(i.quantity),
-          costPrice: Number(i.costPrice),
-        })),
-        totalAmount,
-        paidAmount,
-        paymentMode,
-      });
+  const res = await api.post("/purchases", {
+    supplier,
+    items: items.map((i) => ({
+      product: i.product,
+      quantity: Number(i.quantity),
+      costPrice: Number(i.costPrice),
+    })),
+    totalAmount,
+    paidAmount,
+    paymentMode,
+  });
 
-      alert("Purchase Created");
-      navigate("/dashboard/purchase");
+  console.log("PURCHASE SUCCESS", res.data);
 
-    } catch (err) {
-      alert(err.response?.data?.message || "Error");
-    } finally {
+  alert("Purchase Created");
+  navigate("/dashboard/purchase");
+
+} catch (err) {
+  console.error("PURCHASE ERROR", err);
+  console.error("RESPONSE", err.response);
+
+  alert(
+    err.response?.data?.message ||
+    err.message ||
+    "Error"
+  );
+} finally {
       setLoading(false);
     }
   };
