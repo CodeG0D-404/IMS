@@ -162,7 +162,8 @@ export default function PurchaseCreate() {
   alert(err?.message || "Error");
 } finally {
   setLoading(false);
-};
+}
+  };
 
   /* ================= UI ================= */
   return (

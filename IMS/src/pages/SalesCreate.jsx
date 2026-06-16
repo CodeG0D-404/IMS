@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { getData } from "../utils/apiResponse";
 import "./Css/SalesCreate.css";
 
 export default function SalesCreate() {
+  const navigate = useNavigate();
   const [customers, setCustomers] = useState([]);
   const [products, setProducts] = useState([]);
 
