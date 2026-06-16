@@ -4,9 +4,9 @@ import api from "../services/api";
 import { getData } from "../utils/apiResponse";
 import "./Css/PurchaseCreate.css";
 
+  // existing state...
 
-
-  -*
+  
 const emptyRow = {
   product: "",
   quantity: 1,
@@ -14,7 +14,7 @@ const emptyRow = {
   total: 0,
 };
 
- export default function PurchaseCreate() {
+export default function PurchaseCreate() {
   const navigate = useNavigate();
   const [suppliers, setSuppliers] = useState([]);
   const [products, setProducts] = useState([]);
