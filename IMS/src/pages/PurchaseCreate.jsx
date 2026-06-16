@@ -127,7 +127,7 @@ export default function PurchaseCreate() {
       return alert("Select all products");
     }
 
-    try {
+   try {
   setLoading(true);
 
   const res = await api.post("/purchases", {
@@ -145,21 +145,24 @@ export default function PurchaseCreate() {
   console.log("PURCHASE SUCCESS", res.data);
 
   alert("Purchase Created");
+
+  console.log("BEFORE NAVIGATE");
+
   navigate("/dashboard/purchase");
 
-} catch (err) {
-  console.error("PURCHASE ERROR", err);
-  console.error("RESPONSE", err.response);
+  console.log("AFTER NAVIGATE");
 
-  alert(
-    err.response?.data?.message ||
-    err.message ||
-    "Error"
-  );
+} catch (err) {
+  console.error("PURCHASE ERROR FULL:", err);
+  console.error("ERROR NAME:", err?.name);
+  console.error("ERROR MESSAGE:", err?.message);
+  console.error("ERROR STACK:", err?.stack);
+  console.error("RESPONSE:", err?.response);
+
+  alert(err?.message || "Error");
 } finally {
-      setLoading(false);
-    }
-  };
+  setLoading(false);
+};
 
   /* ================= UI ================= */
   return (
